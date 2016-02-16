@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}User: {{ object.username }}{% endblock %}
+
+{% block content %}
+<div class="row user-info">
+  <div class="large-12 columns">
+      <div class="row">
+          <div class="large-4 text-center columns">
+              <a class="th radius" href="#">
+                  <img src="{% static 'images/space-th-sm.jpg' %}">
+              </a>
+          </div>
+          <div class="large-8 columns about_myself">
+              <span>
+                  <h5><b>About MySelf:</b></h5>
+              </span>
+              <p>I am very interested in making good ETL Flow! I am very interested in making good ETL Flow!
+                  I am very interested in making good ETL Flow!
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="icon-bar five-up">
+  <a class="item" href="{% url 'users:detail' request.user.username %}">
+    <i class="fa fa-bookmark"></i>
+    <label>Favorites</label>
+  </a>
+  <a class="item" href="{% url 'users:order_history' request.user.username %}">
+    <i class="fa fa-history"></i>
+    <label>Orders History</label>
+  </a>
+  <a class="item"  href="{% url 'users:order_history' request.user.username %}">
+    <i class="fa fa-hand-o-up"></i>
+    <label>Current Orders</label>
+  </a>
+  <a class="item" href="{% url 'users:likes' request.user.username %}">
+   <i class="fa fa-thumbs-o-up"></i>
+    <label>Like</label>
+  </a>
+  <a class="item" href="{% url 'users:credit' request.user.username %}">
+   <i class="fa fa-money"></i>
+    <label>Credit</label>
+  </a>
+</div>
+
+<div class="fav-wrapper full-width">
+
+<div class="row favorites">
+  <div class="large-12 columns">
+     <ul class="small-block-grid-3 medium-block-grid-3 large-block-grid-4">
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+         <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+       <a class="radius" href="#">
+         <img src="{% static 'images/space-th-sm.jpg' %}">
+       </a>
+     </ul>
+  </div>
+</div>
+</div>
+
+
+
+{% endblock content %}
+

@@ -1,0 +1,229 @@
+body {
+  color:#222222;
+  cursor:auto;
+  font-family:'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif !important;
+  font-style:normal;
+  font-weight:normal;
+  line-height:1.5;
+}
+
+/* home page */
+.full-width {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+
+.ads-panel {
+   height:300px;
+   background-color: #A4D2F2;
+}
+
+.mobile-redirect {
+   background-color: #70ccaf;
+}
+
+.footer {
+   background-color: #73deff;
+}
+
+.wrapper {
+   position:relative;
+   background: url("../images/traditional-kitchen.jpg") no-repeat center center fixed;
+   width:100%;
+   height: 500px;
+   background-repeat: no-repeat;
+   z-index:0
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   background-color: black;
+}
+
+.intro-text {
+   margin-top:20%;
+   text-align: center;
+}
+
+.intro-text p {
+   color: white;
+   font-size: 250%;;
+}
+
+.background-image img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image div {
+   padding: 0px;
+}
+
+.overlay-row {
+  position:absolute; /* absolute position (so we can position it where we want)*/  
+  bottom: 0px; /* position will be on bottom */
+  width: 100%;
+  /* styling bellow */
+  background-color: black;  
+  color:white;  
+  opacity:0.6; /* transparency */  
+  filter:alpha(opacity=60);
+  z-index: 1;
+}
+
+.overlay-description {
+  padding: 10px;
+  margin: 0px;
+}
+
+#search-form {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding: 0px;
+  z-index:1;
+}
+
+.footer-link {
+   margin-top: 20px;
+}
+
+.home-social {
+   margin-top:8px;
+}
+
+.stydish-footer-bottom {
+  background:#333333;
+  padding:24px 0 10px;
+}
+
+.stydish-footer-bottom ul.home-social {
+  display:block;
+  float:right;
+  margin-bottom:8px;
+}
+
+.stydish-footer-bottom ul.home-social li {
+  display:block;
+  float:left;
+  list-style:none;
+  margin-left:10px;
+}
+
+.stydish-footer-bottom ul.stydish-links {
+  display:inline-block;
+  margin:0;
+}
+
+.stydish-footer-bottom ul.stydish-links li {
+  display:block;
+  float:left;
+  font-size:0.77778rem;
+  font-weight:700;
+  margin-left:6px;
+  text-transform:uppercase;
+}
+
+.zgrb-footer-bottom p.copyright {
+  color:#666666;
+  font-size:0.66667rem;
+  margin:6px 0 0;
+}
+
+.stydish-footer-bottom ul.stydish-links li a {
+  color:#666666;
+  padding:3px 6px;
+}
+
+.stydish-footer-bottom p.copyright {
+  color:#666666;
+  font-size:0.66667rem;
+  margin:6px 0 0;
+}
+
+ul {
+  margin-left:1.1rem;
+}
+
+.stydish-footer-bottom a.stydish-logo {
+  background:url(http://foundation.zurb.com/docs/assets/img/icons/footer-icons.png) 0px 3px no-repeat;
+  color:#858585;
+  display:inline-block;
+  font-size:0.88889rem;
+  font-weight:normal;
+  padding:25px 0 0;
+  width:90px;
+}
+
+.login {
+    margin-top: 10px;
+    margin-bottom:20%;
+}
+
+.signup {
+    margin-bottom:9%;
+}
+
+
+#map {
+  width: 900px;
+  height: 500px;
+}
+
+.th{
+    border: 0px;
+}
+.th img{
+    width:20px;
+    height:20px;
+}
+
+
+/* user detail page */
+.user-info{
+    margin-top:10px;
+    height:160px;
+}
+
+.user-info img {
+    height:150px;
+    width:150px;
+    border:4px solid white;
+}
+
+.about_myself {
+    margin-top: 20px;
+    margin-left:auto;
+}
+
+.icon-bar {
+    background-color: #C7CED9;
+}
+
+.fav-wrapper{
+    background-color:#F1F2D0;
+}
+.favorites {
+    margin-top:-8px;
+
+}
+.favorites img {
+    height:200px;
+    width:200px;
+    margin: 10px;
+    border:5px solid white;
+}
+
+.order_history {
+    margin-top:-8px;
+}
+
+.order_history table {
+    margin-top:10px;
+}

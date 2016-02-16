@@ -1,0 +1,13 @@
+To start development Stydish, follow the steps below:
+1. first make sure to create and activate a virtualenv. 
+2. install the dependencies by pip install -r requirements/local.txt
+3. create a PostgreSQL database and add the database configuration using the dj-database-url app pattern: 
+   postgres://db_owner:password@dbserver_ip:port/db_name either: in the config.settings.common.py setting file, or in the environment variable DATABASE_URL 
+4. run python manage.py migrate
+5. run python manage.py runserver
+6. If you'd like to take advantage of live reloading and Sass / Compass CSS compilation you can do so with the included Grunt task.
+   Make sure that nodejs is installed. Then in the project root run:
+       $ npm install
+   Now you just need:
+       $ grunt serve
+

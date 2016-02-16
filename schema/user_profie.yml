@@ -1,0 +1,89 @@
+- !Field
+  id: UserProfleField
+  type: dict
+  doc: user profile
+  fields:
+	email: 
+		type: string
+		regex: ¡°^\S+@\S$¡±
+		length: 255
+		doc: user email
+		required: [POST,GET,PUT,DELETE]
+       password:
+		type: string
+		doc: user password
+		required: [POST]
+       phone:
+		type: string
+		doc: phone number
+		required: []
+
+- !RestResponse
+  id: UserResponse
+  type: dict
+  doc: user action response
+  fields:
+	200: successful
+	404: no such user
+	405: duplicate user
+
+- !RestAPI
+  id: CreateUser
+  method: POST
+  path: /api/v1/user
+  doc: create user profile
+  authenticate: false
+  request:
+	schema: UserProfleField
+  response:
+	schema: UserResponse
+  callback:
+	type: python
+	module: api.user
+	class_name: CreateUser
+
+- !RestAPI
+  id: UpdateUser
+  method: PUT
+  path: /api/v1/user
+  doc: update user profile
+  authenticate: true
+  request:
+	schema: UserProfleField
+  response:
+	schema: UserResponse
+  callback:
+	type: python
+	module: user
+	class_name: UpdateUser
+
+- !RestAPI (type)
+  id: GetUser
+  method: GET
+  path: /api/v1/user
+  authenticate: false
+  doc: delete user profile
+  request:
+	schema: UserProfleField
+  response:
+	schema: UserResponse
+	schema: UserProfleField
+  callback:
+	type: python
+	module: user
+	class_name: GetUser
+
+- !RestAPI (type)
+  id: DeleteUser
+  method: DELETE
+  path: /api/v1/user
+  authenticate: true
+  doc: delete user profile
+  request:
+	schema: UserProfleField
+  response:
+	schema: UserResponse
+  callback:
+	type: python
+	module: user
+	class_name: DeleteUser

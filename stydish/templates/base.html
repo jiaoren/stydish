@@ -1,0 +1,208 @@
+{% load staticfiles i18n %}
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Stydish{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stydish Home Page">
+    <meta name="author" content="Jiao Ren">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" />
+    <!-- This file store project specific CSS -->
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block foundation %}
+    <script src="{% static 'js/vendor/modernizr.js' %}"></script>
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'css/slick/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/slick/slick-theme.css' %}"/>
+  </head>
+
+  <body>
+
+    <div class="contain-to-grid sticky">
+      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="{% url 'home' %}">Stydish -- Eat Well</a></h1> 
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <!-- Divider -->
+            {% if request.user.is_authenticated %}
+              <li class="divider"></li>
+              <li>
+                <a class="th [radius]" href="{% url 'users:detail' request.user.username %}">
+                  <img src="{% static 'user_images/space-th-sm.jpg' %}" >
+                  &nbsp{{ request.user.username }}
+                </a>
+              </li>
+
+              <li class="divider"></li>
+              <li><a href="{% url 'account_logout' %}">{% trans "Logout" %}</a></li>
+              <li class="divider"></li>
+            {% else %}
+              <li class="divider"></li>
+              <li><a href="{% url 'account_signup' %}" >{% trans "Sign Up" %}</a></li>
+              <li class="divider"></li>
+              <li><a href="{% url 'account_login' %}" >{% trans "Log In" %}</a></li>
+              <li class="divider"></li>
+            {% endif %}
+            <li class="divider"></li>
+            <li><a href="{% url 'account_logout' %}">{% trans "Support & Help" %}</a></li>
+            <li class="divider"></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    {% block content %}
+    <div class="wrapper">
+      <div class="row">
+        <div class="large-12 columns intro-text">
+          <p>Home-Cooked Food in Minuts, NOT Hours!</p>
+        </div>
+      </div>
+      <div class="overlay-row">
+        <div class="row">
+          <div class="large-12 columns">
+            <form id="search-form">
+              <div class="row collapse">
+                <div class="large-3 columns">&nbsp</div>
+                <div class="large-4 columns">
+                  <input type="text" placeholder="Search Food"/>
+                </div>
+                <div class="large-2 columns">
+                  <a href="#" id="search_button" class="button radius alert postfix" data-reveal-id="map_modal">Search</a>
+                </div>
+                <div class="large-3 columns">&nbsp</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row full-width">
+      <div class="large-4 column"> 
+          <ul class="pricing-table">
+            <li class="title">health</li>
+            <li class="description">Stydish provides a new way for you to eat well </li>
+            <li class="description">An awesome description</li>
+            <li class="bullet-item">item</li>
+            <li class="bullet-item">item</li>
+            <li class="bullet-item">item</li>
+          </ul>
+      </div>
+      <div class="large-4 column"> 
+        <ul class="pricing-table">
+          <li class="title">Taste</li>
+          <li class="description">Stydish offers the best food around your neighborhood</li>
+          <li class="description">An awesome description</li>
+          <li class="bullet-item">item</li>
+          <li class="bullet-item">item</li>
+          <li class="bullet-item">item</li>
+        </ul>
+      </div>
+      <div class="large-4 column"> 
+        <ul class="pricing-table">
+          <li class="title">Quality</li>
+          <li class="description">Stydish guarantee the food quality for your daily life</li>
+          <li class="description">An awesome description</li>
+          <li class="bullet-item">item</li>
+          <li class="bullet-item">item</li>
+          <li class="bullet-item">item</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class ="mobile-redirect full-width">
+      <div class="row">
+        <div class="large-12 columns">
+          <h2 class="text-center" ><small>Stydish is now available on mobile</small></h2>
+          <h3 class="text-center"><small> No matter where you are or what you're doing, Stydish is always at your fingertips</small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-4 columns"> &nbsp </div>
+        <div class = "large-4 columns">
+          <ul class="large-block-grid-2 large-centered">
+            <li>
+              <a><img src="{% static 'images/ios-app-store-icon.png' %}"></a>
+            </li>
+            <li>
+              <a><img src="{% static 'images/google-play-icon.png' %}"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="large-4 columns">&nbsp</div>
+      </div>
+    </div>
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <div class="stydish-footer-bottom">
+      <div class="row">
+        <div class="medium-4 medium-4 push-8 columns">
+          <ul class="home-social">
+            <li><a href="http://www.twitter.com/" class="fa fa-twitter fa-2x"></a></li>
+            <li><a href="http://www.facebook.com/" class="fa fa-facebook fa-2x"></a></li>
+            <li><a href="http://stydish.com/contact" class="fa fa-envelope-o fa-2x"></a></li>
+          </ul>
+        </div>
+        <div class="medium-8 medium-8 pull-4 columns">
+          <a href="http://www.stydish.com" class="stydish-logo regular"></a>
+          <ul class="stydish-links">
+            <li><a href="http://stydish.com/about">About</a></li>
+            <li><a href="http://stydish.com/blog">Blog</a></li>
+            <li><a href="http://stydish.com/news">News<span class="show-for-medium-up"> &amp; Events</span></a></li>
+            <li><a href="http://stydish.com/contact">Contact</a></li>
+            <li><a href="http://stydish.com/sitemap">Sitemap</a></li>
+          </ul>
+          <p class="copyright">&copy; 1998&dash;2015 Stydish, Inc. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="map_modal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+      <div id="map"></div>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+   {% block modal %}{% endblock modal %}
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascript %}
+      <script src="{% static 'js/vendor/jquery.js' %}"></script>
+      <script src="{% static 'js/foundation.min.js' %}"></script>
+      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer></script>
+      <script>
+        $(document).foundation();
+        $(document).on('opened.fndtn.reveal', '#map_modal', function() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      });
+      </script>
+      <!-- place project specific Javascript in this file -->
+      <script src="{% static 'js/project.js' %}"></script>
+    {% endblock javascript %}
+  </body>
+</html>

@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}User: {{ object.username }}{% endblock %}
+
+{% block content %}
+<div class="row user-info">
+  <div class="large-12 columns">
+      <div class="row">
+          <div class="large-4 text-center columns">
+              <a class="th radius" href="#">
+                  <img src="{% static 'images/space-th-sm.jpg' %}">
+              </a>
+          </div>
+          <div class="large-8 columns about_myself">
+              <span>
+                  <h5><b>About MySelf:</b></h5>
+              </span>
+              <p>I am very interested in making good ETL Flow! I am very interested in making good ETL Flow!
+                  I am very interested in making good ETL Flow!
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="icon-bar five-up">
+  <a class="item" href="{% url 'users:detail' request.user.username %}">
+    <i class="fa fa-bookmark"></i>
+    <label>Favorites</label>
+  </a>
+  <a class="item" href="{% url 'users:order_history' request.user.username %}">
+    <i class="fa fa-history"></i>
+    <label>Orders History</label>
+  </a>
+  <a class="item"  href="{% url 'users:order_history' request.user.username %}">
+    <i class="fa fa-hand-o-up"></i>
+    <label>Current Orders</label>
+  </a>
+  <a class="item" href="{% url 'users:likes' request.user.username %}">
+   <i class="fa fa-thumbs-o-up"></i>
+    <label>Like</label>
+  </a>
+  <a class="item" href="{% url 'users:credit' request.user.username %}">
+   <i class="fa fa-money"></i>
+    <label>Credit</label>
+  </a>
+</div>
+
+<div class="fav-wrapper full-width">
+    <div class="row order_history">
+      <div class="large-12 columns text-center">
+        <span class="[success alert secondary] [round radius] label">Current Credit : $120 </span>
+          <a href="#" class="button info">buy more</a>
+        <table>
+          <caption>Payment History</caption>
+          <thead>
+            <tr>
+              <th width="200">Date</th>
+              <th>Payment Method</th>
+              <th width="150">Amount</th>
+              <th width="150">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+            <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+            <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+          <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+            <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+            <tr>
+              <td>Content Goes Here</td>
+              <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+              <td>Content Goes Here</td>
+              <td>Content Goes Here</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,40 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+{% load url from future %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<div class="row login" >
+  <div class="large-6 columns large-centered" >
+    {% if socialaccount.providers  %}
+      <p>{% blocktrans with site.name as site_name %}Please sign in with one
+        of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{ site_name }} account and sign in below:{% endblocktrans %}
+      </p>
+
+      <div class="socialaccount_ballot">
+        <ul class="socialaccount_providers">
+          {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+        </ul>
+      <div class="login-or">{% trans 'or' %}</div>
+      {% include "socialaccount/snippets/login_extra.html" %}
+    {% endif %}
+    <form method="POST" action="{% url 'account_login' %}">
+      <fieldset>
+         <legend>{% trans "Log In" %}</legend>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="button radius" type="submit">&nbsp &nbsp &nbsp &nbsp {% trans "Sign In" %}&nbsp &nbsp &nbsp &nbsp</button>
+        <a href="{% url 'account_reset_password' %}" class="button radius alert" >forgot password</a>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
